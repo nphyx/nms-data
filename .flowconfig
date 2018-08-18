@@ -1,0 +1,21 @@
+[ignore]
+.*/.nyc_output/.*
+.*/coverage/.*
+.*/dist/.*
+.*/test/.*
+
+[include]
+src/*.js
+src/**/*.js
+
+[libs]
+
+[lints]
+
+[options]
+esproposal.class_static_fields=enable
+esproposal.class_instance_fields=enable
+; Extensions
+module.file_ext=.scss
+
+[strict]
