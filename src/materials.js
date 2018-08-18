@@ -9,6 +9,7 @@ export type Material = {
 }
 
 export const array: Array<Material>  = [
+  {name: "Anything", symbol: "*", group: "Any Material", value: 0.0}, // used in recipes, not real!
   {name: "Dioxite", symbol: "CO2", group: "Localized Mineral", value: 62.0},
   {name: "Phosphorus", symbol: "P", group: "Localized Mineral", value: 62.0},
   {name: "Pyrite", symbol: "Py", group: "Localized Mineral", value: 62.0},
@@ -71,7 +72,13 @@ export const array: Array<Material>  = [
   {name: "Gamma Root", symbol: "Gr", group: "Agricultural Product", value: 16.0},
   {name: "Marrow Bulb", symbol: "Mb", group: "Netural/Exotic Material", value: 16.0},
   {name: "Kelp Sac", symbol: "Ke", group: "Neutral/Exotic Material", value: 41.0},
-  {name: "Pugneum", symbol: "Pg", group: "Anomolous Material", value: 138.0}
+  {name: "Pugneum", symbol: "Pg", group: "Anomolous Material", value: 138.0},
+
+  {name: "Rusted Metal", symbol: "FeO", group: "Junk", value: 20.0},
+  {name: "Residual Goop", symbol: "RG", group: "Junk", value: 20.0},
+  {name: "Viscous Fluids", symbol: "VF", group: "Junk", value: 20.0},
+  {name: "Living Slime", symbol: "LS", group: "Junk", value: 40.0},
+  {name: "Runaway Mould", symbol: "RM", group: "Junk", value: 25.0}
 ]
 
 const unknown: Material = Object.freeze({name: "Unknown", symbol: "", group: "", value: 0.0})

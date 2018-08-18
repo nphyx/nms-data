@@ -26,8 +26,9 @@ describe("the recipes module", () => {
   })
   it("should have valid materials for each recipe", () => {
     for (let recipe of recipes.set) {
-      const found = materials.any(recipe.materials).concat(products.any(recipe.materials))
-      found.length.should.eql(recipe.materials.length, `${recipe.product} (${recipes.array.indexOf(recipe)}) (found: ${found.map(f => f.symbol)})`)
+      const mats = recipe.materials.filter(m => m !== "*") // we can exclude the fake "any" material
+      const found = materials.any(mats).concat(products.any(mats))
+      found.length.should.eql(mats.length, `${recipe.product} (${recipes.array.indexOf(recipe)}) (found: ${found.map(f => f.symbol)})`)
     }
   })
   it("should have matching materials and quantities for each recipe", () => {
@@ -37,6 +38,6 @@ describe("the recipes module", () => {
   })
   it("should return a list of recipes by required materials", () => {
     // this will break if more salt recipes are added
-    recipes.byMaterial("NaCl").length.should.eql(7)
+    recipes.byMaterial("NaCl").length.should.eql(8)
   })
 })

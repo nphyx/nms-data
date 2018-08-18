@@ -5,7 +5,7 @@ import * as util from "../src/util"
 describe("materials module", () => {
   it("should export the set of materials", () => {
     materials.set.should.be.an.instanceOf(Set)
-    materials.set.size.should.eql(52)
+    materials.set.size.should.eql(58)
     for (let material of materials.set) material.should.be.an.Object().with.properties("name", "symbol", "group", "value")
   })
   it("should have immutable members", () => {
@@ -15,7 +15,7 @@ describe("materials module", () => {
   })
   it("should export the array of materials", () => {
     materials.array.should.be.an.instanceOf(Array)
-    materials.array.length.should.eql(52)
+    materials.array.length.should.eql(58)
     for (let material of materials.array) material.should.be.an.Object().with.properties("name", "symbol", "group", "value")
   })
   it("should have no duplicate entries", () => {
