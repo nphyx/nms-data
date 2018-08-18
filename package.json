@@ -8,7 +8,8 @@
     "flow": "flow check",
     "test": "npm run lint && nyc --reporter=text mocha --bail --require should --require babel-register --reporter=dot test/**/*",
     "test-single": "nyc --reporter=text mocha --bail --require should --require babel-register --reporter=spec",
-    "coverage-report": "nyc report --reporter=html"
+    "coverage-report": "nyc report --reporter=html",
+    "coveralls": "nyc report --reporter=text-lcov | coveralls"
   },
   "keywords": [
     "No Man's Sky",
@@ -44,5 +45,8 @@
     "sinon": "^6.0.0",
     "webpack": "^4.0.0-beta.3",
     "webpack-cli": "^3.0.8"
+  },
+  "dependencies": {
+    "coveralls": "^3.0.2"
   }
 }
