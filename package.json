@@ -1,0 +1,48 @@
+{
+  "name": "nms-data",
+  "version": "0.0.1",
+  "description": "Static datasets for No Man's Sky javascript apps.",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint src/ test/",
+    "flow": "flow check",
+    "test": "npm run lint && nyc --reporter=text mocha --bail --require should --require babel-register --reporter=dot test/**/*",
+    "test-single": "nyc --reporter=text mocha --bail --require should --require babel-register --reporter=spec",
+    "coverage-report": "nyc report --reporter=html"
+  },
+  "keywords": [
+    "No Man's Sky",
+    "nms",
+    "game",
+    "data",
+    "no",
+    "man",
+    "man's",
+    "sky"
+  ],
+  "author": "Justen Robertson <nphyxx@gmail.com> (http://justen.us)",
+  "license": "GPL-3.0",
+  "devDependencies": {
+    "babel-eslint": "^8.2.5",
+    "babel-loader": "^7.1.4",
+    "babel-plugin-transform-flow-strip-types": "^6.22.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-register": "^6.26.0",
+    "css-loader": "^0.28.11",
+    "eslint": "^5.0.1",
+    "eslint-plugin-flowtype": "^2.49.3",
+    "eslint-plugin-json": "^1.2.0",
+    "flow-bin": "^0.75.0",
+    "flow-typed": "^2.4.0",
+    "fs-magic": "^2.1.1",
+    "gulp": "^4.0.0",
+    "gulp-sass": "^4.0.1",
+    "mocha": "^5.2.0",
+    "nyc": "^12.0.2",
+    "sass-loader": "^7.0.3",
+    "should": "^13.2.1",
+    "sinon": "^6.0.0",
+    "webpack": "^4.0.0-beta.3",
+    "webpack-cli": "^3.0.8"
+  }
+}
