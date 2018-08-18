@@ -1,8 +1,8 @@
 {
-  "name": "nms-data",
+  "name": "@nphyx/nms-data",
   "version": "0.0.1",
   "description": "Static datasets for No Man's Sky javascript apps.",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "lint": "eslint src/ test/",
     "flow": "flow check",
@@ -22,7 +22,7 @@
     "sky"
   ],
   "author": "Justen Robertson <nphyxx@gmail.com> (http://justen.us)",
-  "license": "GPL-3.0",
+  "license": "MIT",
   "devDependencies": {
     "babel-eslint": "^8.2.5",
     "babel-loader": "^7.1.4",
