@@ -26,8 +26,8 @@ describe("biome module", () => {
       biome.subtypes.should.be.an.instanceOf(Array)
       biome.weather.should.be.an.instanceOf(Array)
       biome.anomalies.should.be.an.instanceOf(Array)
-      biome.elements.should.be.an.instanceOf(Set)
-      ;([...biome.elements]).map(el => el.symbol).sort().should.deepEqual([...biomes.default_elements].sort())
+      biome.materials.should.be.an.instanceOf(Set)
+      ;([...biome.materials]).map(el => el.symbol).sort().should.deepEqual([...biomes.default_materials].sort())
     })
     it("should accept and map all options", () => {
       let options = {
@@ -35,14 +35,14 @@ describe("biome module", () => {
         subtypes: ["foo","bar","baz"],
         weather: [["bar"]],
         anomalies: ["baz"],
-        elements: ["Pg"]
+        materials: ["Pg"]
       }
       let biome = biomes.create(options)
       biome.name.should.be.an.instanceOf(String)
       biome.subtypes.should.be.an.instanceOf(Array)
       biome.weather.should.be.an.instanceOf(Array)
       biome.anomalies.should.be.an.instanceOf(Array)
-      biome.elements.should.be.an.instanceOf(Set)
+      biome.materials.should.be.an.instanceOf(Set)
       biome.name.should.eql("foo")
       ;(biome.subtypes).should.deepEqual(options.subtypes)
       ;([...biome.weather]).should.deepEqual([
@@ -50,8 +50,8 @@ describe("biome module", () => {
         ["bar", null, null]
       ])
       ;([...biome.anomalies]).should.deepEqual(["baz"])
-      ;([...biome.elements]).map(el => el.symbol).sort()
-        .should.deepEqual(["Pg", ...biomes.default_elements].sort())
+      ;([...biome.materials]).map(el => el.symbol).sort()
+        .should.deepEqual(["Pg", ...biomes.default_materials].sort())
     })
   })
   describe("the biomes set", () => {
@@ -71,7 +71,7 @@ describe("biome module", () => {
         biome.subtypes.should.be.an.instanceOf(Array)
         biome.weather.should.be.an.instanceOf(Array)
         biome.anomalies.should.be.an.instanceOf(Array)
-        biome.elements.should.be.an.instanceOf(Set)
+        biome.materials.should.be.an.instanceOf(Set)
       })
     })
   })

@@ -1,6 +1,6 @@
 /* @flow */
 import * as products from "../src/products"
-import * as elements from "../src/elements"
+import * as materials from "../src/materials"
 import * as util from "../src/util"
 
 describe("products module", () => {
@@ -21,15 +21,15 @@ describe("products module", () => {
   })
   it("should not collide with element symbols", () => {
     // make a nice paired map that will be spit out if there are any results, so we can fix them easily
-    let colliding_elements = elements.any(products.symbols, "symbol") //.length.should.eql(0)
-    let colliding_products = products.any(colliding_elements.map(el => el.symbol), "symbol")
-    colliding_elements.sort((a, b) => a.symbol > b.symbol)
+    let colliding_materials = materials.any(products.symbols, "symbol") //.length.should.eql(0)
+    let colliding_products = products.any(colliding_materials.map(el => el.symbol), "symbol")
+    colliding_materials.sort((a, b) => a.symbol > b.symbol)
     colliding_products.sort((a, b) => a.symbol > b.symbol)
-    let collision_map = colliding_elements.map((el, i) => [el.name, colliding_products[i].name])
+    let collision_map = colliding_materials.map((el, i) => [el.name, colliding_products[i].name])
     collision_map.should.deepEqual([])
   })
   it("should have valid product materials", () => {
-    let all_symbols = [...elements.symbols, ...products.symbols]
+    let all_symbols = [...materials.symbols, ...products.symbols]
     products.set.forEach(product => {
       if (product.materials) for (let key of product.materials.keys()) {
         all_symbols.includes(key).should.be.true(key)

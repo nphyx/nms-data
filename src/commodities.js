@@ -73,6 +73,7 @@ const commodity_arr = [...commodities]
 export const unknown_commodity: Commodity = create("Unknown", "Unknown")
 
 export const set = commodities
+export const array = commodity_arr
 
 export const find = (search: any, field: string = "name"): Commodity => util.find(commodity_arr, search, field) || unknown_commodity
 export const filter = (search: any, field: string = "group"): Array<Commodity> => util.filter(commodity_arr, search, field)

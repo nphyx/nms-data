@@ -6,7 +6,7 @@ describe("nms-data", () => {
     nmsd.biomes.should.be.an.Object()
     nmsd.commodities.should.be.an.Object()
     nmsd.economies.should.be.an.Object()
-    nmsd.elements.should.be.an.Object()
+    nmsd.materials.should.be.an.Object()
     nmsd.freighters.should.be.an.Object()
     nmsd.modes.should.be.an.Object()
     nmsd.products.should.be.an.Object()

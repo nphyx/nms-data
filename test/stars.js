@@ -17,7 +17,7 @@ describe("stars module", () => {
       star_color.name.should.eql("foo")
       star_color.rarity.should.eql("bar")
       star_color.symbols.has("N").should.be.true()
-      ;[...star_color.elements][0].name.should.eql("Iron")
+      ;[...star_color.materials][0].name.should.eql("Iron")
     })
   })
   describe("star_colors", () => {
@@ -27,7 +27,7 @@ describe("stars module", () => {
         c.name.should.be.an.instanceOf(String)
         c.rarity.should.be.an.instanceOf(String)
         c.symbols.should.be.an.instanceOf(Set)
-        c.elements.should.be.an.instanceOf(Set)
+        c.materials.should.be.an.instanceOf(Set)
       })
     })
     it("should be immutable", () => {
@@ -75,7 +75,7 @@ describe("stars module", () => {
       star.color_definition.should.eql(expected_class)
       star.brightness.should.eql(NaN)
       star.rarity.should.eql(expected_class.rarity)
-      star.elements.should.deepEqual(expected_class.elements)
+      star.materials.should.deepEqual(expected_class.materials)
     })
     it("should create a star using spectral class", () => {
       const spectral_class = "F10p"
@@ -86,7 +86,7 @@ describe("stars module", () => {
       star.spectral_class.should.eql(spectral_class)
       star.brightness.should.eql(10)
       star.rarity.should.eql(expected_class.rarity)
-      star.elements.should.deepEqual(expected_class.elements)
+      star.materials.should.deepEqual(expected_class.materials)
     })
   })
   describe("serialization & deserialization", () => {

@@ -1,7 +1,7 @@
 /* @flow */
-import * as elements from "./elements"
+import * as materials from "./materials"
 import * as util from "./util"
-import type {Element} from "./elements"
+import type {Element} from "./materials"
 let freeze = Object.freeze.bind(Object)
 
 export type Weather = [string | null, string | null, string | null]
@@ -10,11 +10,11 @@ export type Biome = {
   subtypes: string[],
   weather: Weather[],
   anomalies: string[],
-  elements: Set<Element>
+  materials: Set<Element>
 }
 
 
-export const default_elements =  freeze(["Fe", "Hr", "Pu", "Zn", "Ti"])
+export const default_materials =  freeze(["Fe", "Fe+", "C", "Na"])
 
 export function createWeather(clear: ?string, normal: ?string, extreme: ?string): Weather {
   let weather: Weather = [clear || null, normal || null, extreme || null]
@@ -22,15 +22,15 @@ export function createWeather(clear: ?string, normal: ?string, extreme: ?string)
   return weather
 }
 
-export function create(options: {name?: string, subtypes?: Array<string>, weather?: Array<Array<string | null>>, anomalies?: Array<string>, elements?: Array<string>} = {}): Biome {
+export function create(options: {name?: string, subtypes?: Array<string>, weather?: Array<Array<string | null>>, anomalies?: Array<string>, materials?: Array<string>} = {}): Biome {
   let weather: Weather[] = [createWeather("Unknown")]
   let subtypes: string[] = []
   if (options.weather instanceof Array) weather = weather.concat(options.weather.map(weather => createWeather(...weather)))
   if (options.subtypes instanceof Array) subtypes = subtypes.concat(options.subtypes)
   let anomalies: string[] = (options.anomalies instanceof Array) ? options.anomalies : []
-  let biome_elements: Set<Element> = new Set((options.elements instanceof Array ?
-    elements.any([...options.elements, ...default_elements]) :
-    elements.any(default_elements)))
+  let biome_materials: Set<Element> = new Set((options.materials instanceof Array ?
+    materials.any([...options.materials, ...default_materials]) :
+    materials.any(default_materials)))
   freeze(anomalies)
   freeze(weather)
   freeze(subtypes)
@@ -39,7 +39,7 @@ export function create(options: {name?: string, subtypes?: Array<string>, weathe
     subtypes,
     weather,
     anomalies,
-    elements: biome_elements
+    materials: biome_materials
   }
 }
 
@@ -59,7 +59,7 @@ biomes.push(create({
     [null, "Parched Sands", "Planetwide Desiccation"],
     [null, "Sporadic Grit Storms", "Sand Blizzards"]
   ],
-  elements: ["Cc"]
+  materials: ["Cc"]
 }))
 
 biomes.push(create({
@@ -104,7 +104,7 @@ biomes.push(create({
     [null, "Outbreaks of Frozen Rain", "Roaring Ice Storms"],
     [null, "Wandering Frosts", "Supercooled Storms"]
   ],
-  elements: ["Fr"]
+  materials: ["Fr"]
 }))
 
 biomes.push(create({
@@ -142,7 +142,7 @@ biomes.push(create({
     [null, "Unstable Fog", "Planet-Wide Radiation Storms"],
     [null, "Volatile Windstorms", "Roaring Nuclear Wind "]
   ],
-  elements: ["Gr"]
+  materials: ["Gr"]
 }))
 
 biomes.push(create({
@@ -160,7 +160,7 @@ biomes.push(create({
     ["Refreshing Breeze", "Sweltering Damp", "Torrential Heat"],
     ["Temperate", "Usually Mild", "Torrid Deluges"]
   ],
-  elements: ["Sb"]
+  materials: ["Sb"]
 }))
 
 biomes.push(create({
@@ -178,7 +178,7 @@ biomes.push(create({
     [null, "Superheated Gas Pockets", "Self-Igniting Storms"],
     [null, "Wandering Hot Spots", "Superheated Air"]
   ],
-  elements: ["So"]
+  materials: ["So"]
 }))
 
 biomes.push(create({
@@ -198,7 +198,7 @@ biomes.push(create({
     [null, "Poison Flurries", "Toxic Monsoons"],
     [null, "Toxic Outbreaks", "Toxic Superstorms"]
   ],
-  elements: ["Fm"]
+  materials: ["Fm"]
 }))
 
 export const set = biomes

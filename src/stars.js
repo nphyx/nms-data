@@ -1,13 +1,13 @@
 /* @flow */
-import * as elements from "./elements"
+import * as materials from "./materials"
 import * as util from "./util"
-import type {Element} from "./elements"
+import type {Element} from "./materials"
 
 type StarColor = {
   name: string,
   rarity: string,
   symbols: Set<string>,
-  elements: Set<Element>
+  materials: Set<Element>
 }
 
 export type Star = {
@@ -16,7 +16,7 @@ export type Star = {
   spectral_class: string,
   brightness: number,
   rarity: string,
-  elements: Set<Element>
+  materials: Set<Element>
 }
 
 export type SerializedStar = {
@@ -27,13 +27,13 @@ export type SerializedStar = {
 const match_spectral_brightness = new RegExp(/([0-9]+)/g)
 
 export function createStarColor(name: ?string, rarity: ?string,
-  symbols_array: string[], elements_array: string[] = []): StarColor {
+  symbols_array: string[], materials_array: string[] = []): StarColor {
   if (!name) throw new Error('name is required')
   if (!rarity) throw new Error('rarity is required')
   if (!symbols_array || !(symbols_array instanceof Array)) throw new Error('symbols is required')
   let symbols: Set<string> = new Set(symbols_array)
-  let els: Set<Element> = new Set(elements.any(elements_array))
-  let star_color = {name, rarity, symbols, elements: els}
+  let els: Set<Element> = new Set(materials.any(materials_array))
+  let star_color = {name, rarity, symbols, materials: els}
   Object.freeze(star_color)
   return star_color
 }
@@ -72,7 +72,7 @@ export function create(options: SerializedStar): Star {
     get spectral_class() { return spectral_class },
     get brightness() { return brightnessFromSpectralClass(spectral_class) },
     get rarity() { return star_color.rarity },
-    get elements() { return star_color.elements }
+    get materials() { return star_color.materials }
   }
   Object.freeze(star)
   return star
