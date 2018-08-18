@@ -18,7 +18,7 @@ export const set: Set<Version> = new Set([
   create("Foundation", ["1.10", "1.12", "1.13"]),
   create("Pathfinder", ["1.20", "1.22", "1.23", "1.24"]),
   create("Atlas Rises", ["1.30", "1.31", "1.32", "1.33", "1.34", "1.35", "1.36", "1.37", "1.38"]),
-  create("Next", ["1.40"])
+  create("Next", ["1.50", "1.51", "1.52", "1.52.1", "1.52.2", "1.53", "1.54", "1.55", "1.57"])
 ])
 
 const version_arr = [...set]
