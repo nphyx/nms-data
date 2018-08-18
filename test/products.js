@@ -4,9 +4,13 @@ import * as materials from "../src/materials"
 import * as util from "../src/util"
 
 describe("products module", () => {
-  it("should export the list of products", () => {
+  it("should export the set of products", () => {
     products.set.should.be.an.instanceOf(Set)
-    for (let product of products.set) product.should.be.an.Object().with.properties("name", "symbol", "group", "price", "materials")
+    for (let product of products.set) product.should.be.an.Object().with.properties("name", "symbol", "group", "price")
+  })
+  it("should export the array of products", () => {
+    products.array.should.be.an.instanceOf(Array)
+    for (let product of products.array) product.should.be.an.Object().with.properties("name", "symbol", "group", "price")
   })
   it("should have immutable members", () => {
     for (let product of products.set) {
@@ -21,20 +25,12 @@ describe("products module", () => {
   })
   it("should not collide with element symbols", () => {
     // make a nice paired map that will be spit out if there are any results, so we can fix them easily
-    let colliding_materials = materials.any(products.symbols, "symbol") //.length.should.eql(0)
+    let colliding_materials = materials.any(products.symbols, "symbol")
     let colliding_products = products.any(colliding_materials.map(el => el.symbol), "symbol")
     colliding_materials.sort((a, b) => a.symbol > b.symbol)
     colliding_products.sort((a, b) => a.symbol > b.symbol)
     let collision_map = colliding_materials.map((el, i) => [el.name, colliding_products[i].name])
     collision_map.should.deepEqual([])
-  })
-  it("should have valid product materials", () => {
-    let all_symbols = [...materials.symbols, ...products.symbols]
-    products.set.forEach(product => {
-      if (product.materials) for (let key of product.materials.keys()) {
-        all_symbols.includes(key).should.be.true(key)
-      }
-    })
   })
   describe("products.create", () => {
     it("should require group, name, and symbol", () => {
@@ -49,13 +45,7 @@ describe("products module", () => {
       product.name.should.eql("foo")
       product.group.should.eql("bar")
       product.symbol.should.eql("baz")
-      product.materials.should.deepEqual(new Map())
       product.price.should.eql(0)
-    })
-    it("should create a map of materials by quantity when given", () => {
-      let product = products.create("foo", "bar", "baz", [["qux", 100]], 0)
-      product.materials.should.be.an.instanceOf(Map)
-      product.materials.get("qux").should.eql(100)
     })
   })
   describe("products.find", () => {
