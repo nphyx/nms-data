@@ -70,27 +70,27 @@ describe("products module", () => {
   describe("products.filter", () => {
     it("should search element groups by default", () => {
       let devices = products.filter("Device")
-      devices.length.should.eql(4)
+      devices.length.should.eql(3)
       for (let device of devices) {
         device.group.should.eql("Device")
       }
     })
     it("should filter products by field", () => {
       let devices = products.filter("Device", "group")
-      devices.length.should.eql(4)
+      devices.length.should.eql(3)
       for (let device of devices) {
         device.group.should.eql("Device")
       }
     })
     it("should be case-insensitive", () => {
       products.filter("alloy", "group").length.should.eql(8)
-      products.filter("DEVICE", "group").length.should.eql(4)
+      products.filter("DEVICE", "group").length.should.eql(3)
     })
   })
   describe("products.any", () => {
     it("should search for fields with any of a list of values", () => {
       let prods = products.any(["Alloy", "Device"], "group")
-      prods.length.should.eql(12)
+      prods.length.should.eql(11)
       for (let prod of prods) {
         ["Alloy", "Device"].indexOf(prod.group).should.not.eql(-1)
       }

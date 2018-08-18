@@ -9,7 +9,7 @@ export type Material = {
 }
 
 export const array: Array<Material>  = [
-  {name: "Dioxite", symbol: "C02", group: "Localized Mineral", value: 62.0},
+  {name: "Dioxite", symbol: "CO2", group: "Localized Mineral", value: 62.0},
   {name: "Phosphorus", symbol: "P", group: "Localized Mineral", value: 62.0},
   {name: "Pyrite", symbol: "Py", group: "Localized Mineral", value: 62.0},
   {name: "Paraffinium", symbol: "Pf", group: "Localized Mineral", value: 62.0},
@@ -32,7 +32,7 @@ export const array: Array<Material>  = [
   {name: "Salt", symbol: "NaCl", group: "Mineral", value: 299.0},
   {name: "Chlorine", symbol: "Cl", group: "Mineral", value: 602.0},
 
-  {name: "Oxygen", symbol: "02", group: "Fuel", value: 34.0},
+  {name: "Oxygen", symbol: "O2", group: "Fuel", value: 34.0},
   {name: "Di-hydrogen", symbol: "H", group: "Fuel", value: 34.0},
   {name: "Deuterium", symbol: "D", group: "Fuel", value: 34.0},
   {name: "Tritium", symbol: "H3", group: "Fuel", value: 6.0},

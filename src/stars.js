@@ -45,14 +45,14 @@ export const star_colors = Object.freeze([
   createStarColor("Blue", "Rare", ["B","O"], ["In"])
 ])
 
-export const unknown_color: StarColor = createStarColor("Unknown", "Unknown", [])
+export const unknown: StarColor = createStarColor("Unknown", "Unknown", [])
 
-export const starColorByName = (color: string): StarColor => util.find(star_colors, color, "name") || unknown_color
+export const starColorByName = (color: string): StarColor => util.find(star_colors, color, "name") || unknown
 
 export function starColorBySpectralClass(string: string): StarColor {
-  if (string.length === 0) return unknown_color
+  if (string.length === 0) return unknown
   let symbol = string.charAt(0).toUpperCase()
-  return star_colors.find(c => c.symbols.has(symbol)) || unknown_color
+  return star_colors.find(c => c.symbols.has(symbol)) || unknown
 }
 
 export function brightnessFromSpectralClass(spectral_class: string): number {
