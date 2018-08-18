@@ -39,10 +39,10 @@ export function createStarColor(name: ?string, rarity: ?string,
 }
 
 export const star_colors = Object.freeze([
-  createStarColor("Yellow", "Common", ["F"]),
-  createStarColor("Red", "Uncommon", ["M","K"], ["Ru"]),
-  createStarColor("Green", "Rare", ["E"], ["Vi"]),
-  createStarColor("Blue", "Rare", ["B","O"], ["Cy"])
+  createStarColor("Yellow", "Common", ["F"], ["Cu"]),
+  createStarColor("Red", "Uncommon", ["M","K"], ["Cd"]),
+  createStarColor("Green", "Rare", ["E"], ["Em"]),
+  createStarColor("Blue", "Rare", ["B","O"], ["In"])
 ])
 
 export const unknown_color: StarColor = createStarColor("Unknown", "Unknown", [])

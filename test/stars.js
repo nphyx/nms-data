@@ -17,7 +17,7 @@ describe("stars module", () => {
       star_color.name.should.eql("foo")
       star_color.rarity.should.eql("bar")
       star_color.symbols.has("N").should.be.true()
-      ;[...star_color.materials][0].name.should.eql("Iron")
+      ;[...star_color.materials][0].name.should.eql("Ferrite Dust")
     })
   })
   describe("star_colors", () => {
