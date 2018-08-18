@@ -59,7 +59,7 @@ biomes.push(create({
     [null, "Parched Sands", "Planetwide Desiccation"],
     [null, "Sporadic Grit Storms", "Sand Blizzards"]
   ],
-  materials: ["Cc"]
+  materials: ["Cc", "Py"]
 }))
 
 biomes.push(create({
@@ -104,7 +104,7 @@ biomes.push(create({
     [null, "Outbreaks of Frozen Rain", "Roaring Ice Storms"],
     [null, "Wandering Frosts", "Supercooled Storms"]
   ],
-  materials: ["Fr"]
+  materials: ["Fr", "CO2"]
 }))
 
 biomes.push(create({
@@ -142,7 +142,7 @@ biomes.push(create({
     [null, "Unstable Fog", "Planet-Wide Radiation Storms"],
     [null, "Volatile Windstorms", "Roaring Nuclear Wind "]
   ],
-  materials: ["Gr"]
+  materials: ["Gr", "U"]
 }))
 
 biomes.push(create({
@@ -160,7 +160,7 @@ biomes.push(create({
     ["Refreshing Breeze", "Sweltering Damp", "Torrential Heat"],
     ["Temperate", "Usually Mild", "Torrid Deluges"]
   ],
-  materials: ["Sb"]
+  materials: ["Sb", "Pf"]
 }))
 
 biomes.push(create({
@@ -178,7 +178,7 @@ biomes.push(create({
     [null, "Superheated Gas Pockets", "Self-Igniting Storms"],
     [null, "Wandering Hot Spots", "Superheated Air"]
   ],
-  materials: ["So"]
+  materials: ["So", "P"]
 }))
 
 biomes.push(create({
@@ -198,7 +198,7 @@ biomes.push(create({
     [null, "Poison Flurries", "Toxic Monsoons"],
     [null, "Toxic Outbreaks", "Toxic Superstorms"]
   ],
-  materials: ["Fm"]
+  materials: ["Fm", "NH3"]
 }))
 
 export const set = biomes
