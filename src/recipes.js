@@ -1,4 +1,5 @@
 /* @flow */
+import * as util from "./util"
 export type Recipe = {
   type: "refined" | "crafted",
   materials: Array<string>,
@@ -157,4 +158,13 @@ export const array: Array<Recipe> = [
 array.forEach(r => Object.freeze(r))
 export const set = Object.freeze(new Set(array))
 
+const unknown: Recipe = Object.freeze({type: "unknown", product: "Unk", materials: [], quantities: [], output: 0})
+
 export const byMaterial = (material: string): Array<Recipe> => array.filter(i => i.materials.includes(material))
+export const byProduct = (material: string): Array<Recipe> => array.filter(i => i.product === material)
+export const find = (search: any, field: string = "product") => util.find(array, search, field) || unknown
+export const filter = (search: any, field: string = "product") => util.filter(array, search, field)
+export const any = (search: any, field: string = "product"): Array<Element> => util.any(array, search, field)
+export const uniqueProperties = (field: string) => util.uniqueProperties(array, field)
+export const types = Object.freeze(uniqueProperties("type"))
+export const products = Object.freeze(uniqueProperties("product"))
